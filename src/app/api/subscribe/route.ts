@@ -36,15 +36,23 @@ export async function POST(request: Request) {
   }
 
   const resend = getResend();
-  const audienceId = process.env.RESEND_AUDIENCE_ID!;
+  // Resend renamed Audiences → Segments; the ID from ?segmentId= in the dashboard URL.
+  const segmentId = process.env.RESEND_AUDIENCE_ID!;
 
   try {
-    await resend!.contacts.create({
-      audienceId,
+    const { error } = await resend!.contacts.create({
       email,
       firstName: body.name?.trim() || undefined,
       unsubscribed: false,
+      segments: [{ id: segmentId }],
     });
+    if (error) {
+      console.error("[subscribe] Resend error", error);
+      return NextResponse.json(
+        { error: "Could not subscribe. Try again later." },
+        { status: 502 },
+      );
+    }
     return NextResponse.json({
       message: "You're on the weekly inventory list.",
     });

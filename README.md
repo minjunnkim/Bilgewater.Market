@@ -3,7 +3,7 @@
 Premium Riftbound TCG vending site — browse inventory, express interest, join the weekly email list.
 
 **Stack:** Next.js (App Router) · Tailwind · Sanity Studio · Resend  
-**Domain (later):** [bilgewater.market](https://bilgewater.market)
+**Domain:** [www.bilgewatermkt.com](https://www.bilgewatermkt.com) (buy + DNS on Cloudflare; host on Vercel)
 
 ## Quick start (no logistics required)
 
@@ -58,7 +58,7 @@ Until then, forms still work in the UI (no real email sent).
 
 ## Deferred go-live logistics
 
-Buy `bilgewater.market`, point DNS to Vercel, Cloudflare Email Routing for `hello@…`, verify domain in Resend. See the project plan for the full checklist — none of that blocks local development.
+Buy `bilgewatermkt.com` on **Cloudflare Registrar**, point DNS at Vercel, use Cloudflare Email Routing for `hello@…`, verify the domain in Resend. See the go-live checklist in chat history — local development does not require any of that.
 
 ## Brand
 
